@@ -1,0 +1,15 @@
+version: '3.6'
+services:
+  trainer:
+    container_name: open-hack
+    image: dakotajang/tensorflow
+    ports:
+     - "8888:8888"
+     - "6006:6006"
+     - "5000:5000"
+    volumes:
+      - ./:/jupyter
+    stdin_open: true
+    tty: true
+    working_dir: /jupyter
+    command: jupyter notebook --NotebookApp.token='' --allow-root --ip=0.0.0.0
